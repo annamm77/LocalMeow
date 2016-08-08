@@ -37,7 +37,8 @@ module.exports.routes = {
   },
 
   '/cats': {
-    view: 'cats'
+    controller: 'cats',
+    view: 'index'
   }
 
   /***************************************************************************

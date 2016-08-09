@@ -8,7 +8,7 @@ module.exports = {
 		request('http://api.petfinder.com/pet.find?key=' + process.env.API_KEY + '&animal=cat&location=98005&format=json', function (error, response, body) {
 		  if (!error && response.statusCode == 200) {
 				return res.view('index', {
-					test: body
+					searchresults: body
 				});
 		  }
 		})

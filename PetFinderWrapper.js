@@ -19,11 +19,13 @@ request('http://api.petfinder.com/pet.find?key=' + process.env.API_KEY + '&anima
       obj["breed"] = allpets[i].breeds.breed.$t
       obj["shelterid"] = allpets[i].shelterId.$t
       obj["description"] = allpets[i].description.$t
-      // if (allpets[i].media.photos === "undefined") {
-      //   console.log("It's" + i)
-      // } else {
-      // obj["image"] = allpets[i].media.photos.photo[2].$t
-      // }
+
+      if (Object.getOwnPropertyNames(allpets[i].media).length === 0) {
+        continue
+      } else {
+        obj["image"] = allpets[i].media.photos.photo[2].$t
+      }
+
       obj["address"] = allpets[i].contact.address1.$t
       obj["city"] = allpets[i].contact.city.$t
       obj["state"] = allpets[i].contact.state.$t
@@ -33,6 +35,6 @@ request('http://api.petfinder.com/pet.find?key=' + process.env.API_KEY + '&anima
 
       petsarray.push(obj)
     }
-    console.log(petsarray)
+    return petsarray
   }
 })

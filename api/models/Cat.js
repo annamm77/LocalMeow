@@ -1,41 +1,33 @@
-/**
- * Cat.js
- *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
- * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
- */
-
 module.exports = {
 
   attributes: {
 
-    [id : { type: 'integer,' },
+    id : { type: 'integer' },
 
-    name : { type: 'string,' },
+    name : { type: 'string' },
 
-    age : { type: 'string,' },
+    age : { type: 'string' },
 
-    sex : { type: 'string,' },
+    sex : { type: 'string' },
 
-    breed : { type: 'string,' },
+    breed : { type: 'string' },
 
-    shelterid : { type: 'string,' },
+    shelterid : { type: 'string' },
 
-    description : { type: 'string,' },
+    description : { type: 'string' },
 
-    image : { type: 'string,' },
+    image : { type: 'string' },
 
-    address : { type: 'string,' },
+    address : { type: 'string' },
 
-    city : { type: 'string,' },
+    city : { type: 'string' },
 
-    state : { type: 'string,' },
+    state : { type: 'string' },
 
-    zip : { type: 'string,' },
+    zip : { type: 'string' },
 
-    phone : { type: 'string,' },
+    phone : { type: 'string' },
 
-    email : { type: 'string]' }
+    email : { type: 'string' }
   }
 };
-

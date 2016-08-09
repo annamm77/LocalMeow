@@ -9,16 +9,17 @@ var request = require('request');
 module.exports = {
 
 	index: function (req, res) {
-    res.view();
+		// console.log("hi!")
+		return res.view('index', {
+			test: "boop"
+		});
 	}
 
 
-	// index: function(req, res) {
-	// 		Applicant.findAll().done(function(err, applicants) {
-	// 				res.view({
-	// 						apps: applicants
-	// 				});
-	// 		});
-	// }
+	// request('http://api.petfinder.com/pet.find?key=KEYHERE&animal=cat&location=98005', function (error, response, body) {
+	//   if (!error && response.statusCode == 200) {
+	//     console.log(body)
+	//   }
+	// })
 
 };

@@ -36,10 +36,8 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  '/cats': {
-    controller: 'cats',
-    view: 'index'
-  }
+  'get /cats': 'CatsController.index'
+
 
   /***************************************************************************
   *                                                                          *

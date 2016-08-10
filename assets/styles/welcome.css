@@ -1,0 +1,18 @@
+body {
+  background-image: url("/images/onecat.jpeg");
+}
+
+h1 {
+  font-family: 'Nixie One', cursive;
+  font-size: 7rem;
+}
+
+#welcomenav {
+  margin-left: 4rem;
+}
+
+h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.75rem;
+  font-style: italic;
+}

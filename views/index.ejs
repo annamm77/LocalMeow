@@ -1,3 +1,16 @@
 <h1>All the cat data goes here</h1>
 
-<%= res.locals.searchresults %>
+<br> Keys of the search results
+<%= Object.keys(res.locals.searchresults) %>
+
+<br>
+<br> Search Result key 0
+<%= res.locals.searchresults[0] %>
+
+<br>
+<br> Keys of key 0
+<%= Object.keys(res.locals.searchresults[0]) %>
+
+<br>
+<br>searchresults[0]["name"]
+<%= res.locals.searchresults[0]["name"] %>

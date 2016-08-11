@@ -1,0 +1,48 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+.catprofile {
+  margin: 4rem;
+  padding: 2rem;
+  background-color: #EE3724;
+  text-align: center;
+  /*box-shadow: 5px 5px 10px #9B0F00;*/
+  border-radius: 1.5rem;
+}
+
+.profilename {
+  font-family: 'Nixie One', cursive;
+  font-size: 4rem;
+  margin: 0rem;
+}
+
+.button {
+  font-family: 'Quicksand', sans-serif;
+  text-decoration: none;
+  background-color: #096778;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+}

@@ -1,12 +1,17 @@
-<h1>Look, Cats!!</h1>
+<link rel="stylesheet" href="/styles/index.css">
 
-<div class="catprofile">
-  <img class="profilepic" src= <%= res.locals.searchresults[0]["image"] %> >
-  <br>
-  <%= res.locals.searchresults[0]["name"] %>
-  <br>
-  <a class="nextlink" href="#">Next</a>
-</div>
+<ul>
+  <li><a href="#">Log In/Sign Up</a></li>
+  <li><a href="#">Favorites</a></li>
+</ul>
+
+  <div class="catprofile">
+    <img class="profilepic" src= <%= res.locals.searchresults[0]["image"] %> >
+    <br>
+    <p class="profilename"><%= res.locals.searchresults[0]["name"] %></p>
+    <br>
+    <a class="button nextlink" href="#">Next</a>
+  </div>
 
 <!-- <% for (var i = 0, len = res.locals.searchresults.length; i < len; i++) { %>
   <div class="catprofile">

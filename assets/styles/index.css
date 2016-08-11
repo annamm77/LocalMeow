@@ -16,6 +16,11 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.title {
+  font-size: 2rem;
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -28,8 +33,13 @@ li a:hover {
   padding: 2rem;
   background-color: #EE3724;
   text-align: center;
-  /*box-shadow: 5px 5px 10px #9B0F00;*/
+  /*box-shadow: 5px 5px 10px #096778;*/
   border-radius: 1.5rem;
+}
+
+.profilepic {
+  border: 4px #9B0F00 solid;
+  border-radius: 1rem;
 }
 
 .profilename {

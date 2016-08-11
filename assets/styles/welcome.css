@@ -2,17 +2,34 @@ body {
   background-image: url("/images/onecat.jpeg");
 }
 
+/* Div for title and tagline */
+
+#welcometext {
+  margin-left: 1rem;
+}
+
 h1 {
   font-family: 'Nixie One', cursive;
   font-size: 7rem;
+  margin-bottom: 0rem;
 }
 
+#tagline {
+  font-family: 'Nixie One', cursive;
+  font-style: italic;
+  font-size: 1.5rem;
+}
+
+/* Div for nav links */
 #welcomenav {
+  margin-top: 3rem;
   margin-left: 4rem;
 }
 
-h2 {
+#welcomelink {
+  text-decoration: none;
   font-family: 'Quicksand', sans-serif;
   font-size: 1.75rem;
-  font-style: italic;
+  float: left;
+  clear: both;
 }

@@ -36,7 +36,11 @@ module.exports.routes = {
     view: 'welcome'
   },
 
-  'get /cats': 'CatsController.index'
+  'get /cats': {
+   controller: "CatsController",
+   action: "index",
+   cors: true
+}
 
 
   /***************************************************************************

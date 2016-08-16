@@ -20,7 +20,12 @@ var options = {
      obj["id"] = allpets[i].id.$t
      obj["name"] = allpets[i].name.$t
      obj["age"] = allpets[i].age.$t
-     obj["sex"] = allpets[i].sex.$t
+     if (allpets[i].sex.$t === "F") {
+       obj["sex"] = "Female"
+     }
+     if (allpets[i].sex.$t === "M") {
+       obj["sex"] = "Male"
+     }
      obj["breed"] = allpets[i].breeds.breed.$t
      obj["shelterid"] = allpets[i].shelterId.$t
      obj["description"] = allpets[i].description.$t

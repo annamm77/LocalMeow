@@ -46,15 +46,14 @@ module.exports.routes = {
 
   'get /signup': {
     view: 'signup'
-  }
-};
+  },
 
   'get /cats': {
    controller: "CatsController",
    action: "index",
    cors: true
+  }
 }
-
 
   /***************************************************************************
   *                                                                          *
@@ -65,5 +64,3 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-
-};

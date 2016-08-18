@@ -4,9 +4,9 @@ module.exports = {
 
 	index: function (req, res) {
 		petfinderwrapper.getallpets().then(function(petsarray){
-
-				return res.json(petsarray);
-
+				return res.view('index', {
+					searchresults: petsarray
+				});
 		  })
 		  .catch(function (err) {
 				return res.view('404')

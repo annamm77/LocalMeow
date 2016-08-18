@@ -33,8 +33,21 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'welcome'
+    view: 'homepage'
   },
+
+  'get /login': {
+       view: 'login'
+  },
+
+  'post /login': 'AuthController.login',
+
+  '/logout': 'AuthController.logout',
+
+  'get /signup': {
+    view: 'signup'
+  }
+};
 
   'get /cats': {
    controller: "CatsController",

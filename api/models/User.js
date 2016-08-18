@@ -12,10 +12,7 @@ module.exports = {
             minLength: 6,
             required: true
         },
-        favoriteCats: {
-          collection: 'Cats'
-        }
-
+  
         toJSON: function() {
             var obj = this.toObject();
             delete obj.password;

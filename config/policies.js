@@ -28,8 +28,7 @@ module.exports.policies = {
 
   '*': true,
 
-
-  'PostController': {
+  'CatsController': {
     '*': 'isAuthenticated'
   }
 

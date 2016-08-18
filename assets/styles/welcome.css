@@ -38,3 +38,13 @@ h1 {
 #welcomelink:hover {
     color: #58A8B7;
 }
+
+/*LOG IN PAGE*/
+#smallerh1 {
+  font-size: 4rem;
+}
+
+#loginTitle {
+  font-family: 'Nixie One', cursive;
+  font-size: 3rem;
+}

@@ -23,11 +23,9 @@ module.exports = {
 		//get petfinder id #
 		//get pet array %
 		//get user id #
-		return res.view('test', {
-			petfinder: "boop",
-			arrayindex: "hi",
-			userid: "yup"
-		})
+		// db.user.find({_id:ObjectId("57b742cf32ae8f6419f9ef90")})
+    // http://sailsjs.org/documentation/reference/waterline-orm/models/update
+		return res.view('test')
 	}
 
 

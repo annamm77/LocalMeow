@@ -1,12 +1,12 @@
 <h1> Test Page </h1>
 
 Petfinder ID#<br>
-<%= res.locals.petfinder %>
+<%= req.query.id %>
 <br><br>
 
 Array Index <br>
-<%= res.locals.arrayindex %>
+<%= req.query.num %>
 <br><br>
 
 UserID <br>
-<%= res.locals.userid %>
+<%= req.query.user %>

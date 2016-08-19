@@ -6,20 +6,12 @@
   <li><a href="/logout">Log Out</a></li>
 </ul>
 
-  <div class="catprofile">
-    <img class="profilepic" src= <%= res.locals.searchresults[0]["image"] %> >
-    <br>
-    <p class="profilename"><%= res.locals.searchresults[0]["name"] %></p>
-    <br>
-    <a class="button nextlink" href="#">Next</a>
-  </div>
+<div class="catprofile">
+  <img class="profilepic" src= <%= res.locals.searchresults[res.locals.current_index]["image"] %> >
+  <br>
+  <p class="profilename"><%= res.locals.searchresults[res.locals.current_index]["name"] %></p>
+  <br>
+  <a class="button nextlink" href="#">Next</a>
+</div>
 
-<!-- <% for (var i = 0, len = res.locals.searchresults.length; i < len; i++) { %>
-  <div class="catprofile">
-    <img src= <%= res.locals.searchresults[i]["image"] %> >
-    <br>
-    <%= res.locals.searchresults[i]["name"] %>
-    <br>
-    <a class="nextlink" href="#">Next</a>
-  </div>
-<% } %> -->
+<%= res.locals.current_index %>

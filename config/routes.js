@@ -50,14 +50,14 @@ module.exports.routes = {
     view: 'signup'
   },
 
-  'get /cats': {
-   controller: "CatsController",
-   action: "index",
-  },
+  // 'get /cats': {
+  //  controller: "CatsController",
+  //  action: "index",
+  // },
 
   'get /cats/:index': {
     controller: "CatsController",
-    action: "scroll"
+    action: "index"
   }
 }
 

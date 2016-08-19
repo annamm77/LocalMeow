@@ -50,15 +50,17 @@ module.exports.routes = {
     view: 'signup'
   },
 
-  // 'get /cats': {
-  //  controller: "CatsController",
-  //  action: "index",
-  // },
-
   'get /cats/:number': {
     controller: "CatsController",
     action: "index"
+  },
+
+  'get /favorite': {
+    controller: "CatsController",
+    action: "favorite"
   }
+
+
 }
 
   /***************************************************************************

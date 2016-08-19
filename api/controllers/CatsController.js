@@ -17,17 +17,19 @@ module.exports = {
 		  .catch(function (err) {
 				return res.view('404')
 		  })
+	},
+
+	favorite: function (req, res) {
+		//get petfinder id #
+		//get pet array %
+		//get user id #
+		return res.view('test', {
+			petfinder: "boop",
+			arrayindex: "hi",
+			userid: "yup"
+		})
 	}
 
-	// scroll: function (req, res) {
-	// 	petfinderwrapper.getallpets().then(function(petsarray){
-	// 		return res.view('test', {
-	// 			test: req.params.index
-	// 		})
-	// 	})
-	// 	.catch(function (err) {
-	// 		return res.view('404')
-	// 	})
-	// }
+
 
 };

@@ -4,13 +4,13 @@ module.exports = {
 
 	index: function (req, res) {
 
-		if (req.params.index === undefined) {
-			req.params.index = 0
+		if (req.params.number === undefined) {
+			req.params.number = 0
 		}
 
 		petfinderwrapper.getallpets().then(function(petsarray){
 				return res.view('index', {
-					current_index: req.params.index,
+					current_index: req.params.number,
 					searchresults: petsarray
 				});
 		  })

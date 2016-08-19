@@ -55,7 +55,7 @@ module.exports.routes = {
   //  action: "index",
   // },
 
-  'get /cats/:index': {
+  'get /cats/:number': {
     controller: "CatsController",
     action: "index"
   }

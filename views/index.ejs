@@ -8,11 +8,15 @@
 
 <div class="catprofile">
   <img class="profilepic" src= <%= res.locals.searchresults[res.locals.current_index]["image"] %> >
+
   <br>
+
   <p class="profilename"><%= res.locals.searchresults[res.locals.current_index]["name"] %></p>
+
   <br>
-  <a class="button nextlink" href="/cats/1">Next</a>
+
+  <% next = parseInt(res.locals.current_index) + 1 %>
+  <a class="button" href="/cats/<%=next%>">Next</a>
+
+  <a class="button" href="#">Favorite</a>
 </div>
-
-
-<%= res.locals.current_index %>

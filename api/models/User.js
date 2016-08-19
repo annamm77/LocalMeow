@@ -12,7 +12,10 @@ module.exports = {
             minLength: 6,
             required: true
         },
-
+        favorites: {
+          type: 'array',
+          defaultsTo: []
+        },
         toJSON: function() {
             var obj = this.toObject();
             delete obj.password;

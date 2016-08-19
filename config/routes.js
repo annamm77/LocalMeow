@@ -53,7 +53,11 @@ module.exports.routes = {
   'get /cats': {
    controller: "CatsController",
    action: "index",
-   cors: true
+  },
+
+  'get /cats/:index': {
+    controller: "CatsController",
+    action: "scroll"
   }
 }
 

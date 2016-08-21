@@ -12,6 +12,7 @@ var options = {
  transform: function (response) {
    var allpets = response.petfinder.pets.pet
 
+   var wrapper = {}
    var petsarray = []
 
    for (var i = 0, len = allpets.length; i < len; i++) {
@@ -45,7 +46,10 @@ var options = {
 
      petsarray.push(obj)
    }
-   return petsarray
+   wrapper["offset"] = response.petfinder.lastOffset.$t
+   wrapper["pets"] = petsarray
+
+   return wrapper
  }
 }
 

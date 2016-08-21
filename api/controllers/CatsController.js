@@ -8,10 +8,10 @@ module.exports = {
 			req.params.number = 0
 		}
 
-		petfinderwrapper.getallpets().then(function(petsarray){
+		petfinderwrapper.getallpets().then(function(wrapper){
 				return res.view('index', {
 					current_index: req.params.number,
-					searchresults: petsarray
+					searchresults: wrapper
 				});
 		  })
 		  .catch(function (err) {

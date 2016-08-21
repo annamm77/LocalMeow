@@ -58,8 +58,11 @@ module.exports.routes = {
   'get /favorite': {
     controller: "CatsController",
     action: "favorite"
-  }
+  },
 
+  'get /test': {
+    view: 'test'
+  }
 
 }
 

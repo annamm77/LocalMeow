@@ -20,14 +20,24 @@ module.exports = {
 	},
 
 	favorite: function (req, res) {
-		//get petfinder id #
-		//get pet array %
-		//get user id #
-		// db.user.find({_id:ObjectId("57b742cf32ae8f6419f9ef90")})
-    // http://sailsjs.org/documentation/reference/waterline-orm/models/update
-		return res.view('test')
+		var catid = req.query.id
+		var catindex = req.query.num
+		var userid = req.query.user
+
+		//this works to find the right user in sails console.
+		// User.findOne({id:'57b742cf32ae8f6419f9ef90'}).exec(function(err, users){console.log(users)});
+
+		//native mongo
+			// db.user.findOne({_id : ObjectId("57b74523af3501a5190f22cd")})
+			// db.user.addToSet({ _id : ObjectId("57b74523af3501a5190f22cd") },{ $push: { favorites: "test" }})
+
+		//continue reseraching how to use native mongo db queries in sails.
+		User.native(function(err, collection) {
+			if (err) return res.serverError(err);
+				collection.addToSet({ _id : "ObjectId" + "(" + userid + ")" },{ $push: { favorites: catid }})
+			return res.view('test')
+		});
+
 	}
-
-
 
 };

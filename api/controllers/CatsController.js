@@ -3,30 +3,6 @@ var wrappertest = require('../../WrapperTest')
 
 module.exports = {
 
-	// index: function (req, res) {
-	//
-	// 	if (req.params.number === undefined) {
-	// 		req.params.number = 0
-	// 	}
-	//
-	// 	if (req.params.zip === undefined) {
-	// 		var zip = req.query.zip
-	// 	} else {
-	// 		var zip = req.params.zip
-	// 	}
-	//
-	// 	wrappertest.getallpets(zip).then(function(wrapper){
-	// 			return res.view('index', {
-	// 				current_index: req.params.number,
-	// 				searchresults: wrapper,
-	// 				zip: zip
-	// 			});
-	// 	  })
-	// 	  .catch(function (err) {
-	// 			return res.view('404')
-	// 	  })
-	// },
-
 	index: function(req, res) {
 		var zip = req.params.zip
 		var offset = req.params.offset

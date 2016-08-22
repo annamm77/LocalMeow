@@ -1,7 +1,7 @@
-<h1> Test Page </h1>
+<h1> Search </h1>
 
-<form action="/cats" method="get">
+<form onsubmit="location.href='/cats/' + document.getElementById('zip').value + '/0' + '/0'; return false;">
   Zip Code:<br>
-  <input type="text" name="zip" value=""><br>
-  <input type="submit" value="Submit">
+  <input type="text" id="zip" />
+  <input type="submit" />
 </form>

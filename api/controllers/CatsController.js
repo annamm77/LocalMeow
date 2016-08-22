@@ -1,5 +1,4 @@
 var petfinderwrapper = require('../../PetFinderWrapper')
-var wrappertest = require('../../WrapperTest')
 
 module.exports = {
 
@@ -8,7 +7,7 @@ module.exports = {
 		var offset = req.params.offset
 		var current_index = req.params.number
 
-		wrappertest.getmorepets(zip,offset).then(function(wrapper){
+		petfinderwrapper.getpets(zip,offset).then(function(wrapper){
 				return res.view('index', {
 					searchresults: wrapper,
 					current_index: current_index,

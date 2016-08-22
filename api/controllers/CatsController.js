@@ -9,12 +9,17 @@ module.exports = {
 			req.params.number = 0
 		}
 
-		var zip = req.query.zip
+		if (req.params.zip === undefined) {
+			var zip = req.query.zip
+		} else {
+			var zip = req.params.zip
+		}
 
 		wrappertest.getallpets(zip).then(function(wrapper){
 				return res.view('index', {
 					current_index: req.params.number,
-					searchresults: wrapper
+					searchresults: wrapper,
+					zip: zip
 				});
 		  })
 		  .catch(function (err) {

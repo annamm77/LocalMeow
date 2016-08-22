@@ -16,7 +16,7 @@
   <br>
 
   <% next = parseInt(res.locals.current_index) + 1 %>
-  <a class="button" href="/cats/<%=next%>">Next</a>
+  <a class="button" href="/cats/<%=res.locals.zip%>/<%=next%>">Next</a>
 
   <a class="button" href="/favorite?num=<%=res.locals.current_index%>&id=<%=res.locals.searchresults.pets[res.locals.current_index]["id"]%>&user=<%=req.session.passport.user%>">Favorite</a>
   <br><br>

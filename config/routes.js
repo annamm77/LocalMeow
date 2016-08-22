@@ -50,7 +50,11 @@ module.exports.routes = {
     view: 'signup'
   },
 
-  'get /cats/:number': {
+  'get /search': {
+    view: 'zipsearch'
+  },
+
+  'get /cats/:zip/:number': {
     controller: "CatsController",
     action: "index"
   },

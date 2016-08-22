@@ -19,7 +19,7 @@ module.exports = {
             }
             req.logIn(user, function(err) {
                 if (err) res.send(err);
-                return res.redirect('/cats');
+                return res.redirect('/search');
             });
 
         })(req, res);

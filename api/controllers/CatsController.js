@@ -1,4 +1,5 @@
 var petfinderwrapper = require('../../PetFinderWrapper')
+var wrappertest = require('../../WrapperTest')
 
 module.exports = {
 
@@ -8,7 +9,9 @@ module.exports = {
 			req.params.number = 0
 		}
 
-		petfinderwrapper.getallpets().then(function(wrapper){
+		var zip = req.query.zip
+
+		wrappertest.getallpets(zip).then(function(wrapper){
 				return res.view('index', {
 					current_index: req.params.number,
 					searchresults: wrapper

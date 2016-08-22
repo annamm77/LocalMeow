@@ -23,12 +23,11 @@
     <a class="button" href="/cats/<%=res.locals.zip%>/<%=next%>">Next</a>
   <% } %>
 
-  <a class="button" href="/favorite?num=<%=res.locals.current_index%>&id=<%=res.locals.searchresults.pets[res.locals.current_index]["id"]%>&user=<%=req.session.passport.user%>">Favorite</a>
   <br><br>
   <%= res.locals.current_index %>
   <%= res.locals.searchresults.pets.length %>
 
-  SEND ME TO THE MORE 
+  SEND ME TO THE MORE
   <%= res.locals.searchresults.offset %>
   <%= res.locals.zip %>
 </div>

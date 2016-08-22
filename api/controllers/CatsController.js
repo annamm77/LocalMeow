@@ -27,6 +27,34 @@ module.exports = {
 		  })
 	},
 
+	more: function(req, res) {
+
+		return res.view('test');
+
+		// if (req.params.number === undefined) {
+		// 	req.params.number = 0
+		// }
+		//
+		// if (req.params.zip === undefined) {
+		// 	var zip = req.query.zip
+		// } else {
+		// 	var zip = req.params.zip
+		// }
+
+		//define lastoffset here
+
+		// wrappertest.getallpets(zip,lastoffset).then(function(wrapper){
+		// 		return res.view('index', {
+		// 			current_index: req.params.number,
+		// 			searchresults: wrapper,
+		// 			zip: zip
+		// 		});
+		// 	})
+		// 	.catch(function (err) {
+		// 		return res.view('404')
+		// 	})
+	},
+
 	favorite: function (req, res) {
 		var catid = req.query.id
 		var catindex = req.query.num

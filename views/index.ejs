@@ -15,19 +15,14 @@
 
   <br>
 
-  <% next = parseInt(res.locals.current_index) + 1 %>
+  <% next_index = parseInt(res.locals.current_index) + 1 %>
+  <% next_offset = parseInt(res.locals.offset) + 25 %>
 
-  <% if (next === res.locals.searchresults.pets.length) { %>
-    <a class="button" href="/cats/<%=res.locals.zip%>/<%=next%>">Morrreeee</a>
+  <% if (next_index === res.locals.searchresults.pets.length) { %>
+    <a class="button" href="/cats/<%=res.locals.zip%>/<%=next_offset%>/0">Next</a>
   <% } else { %>
-    <a class="button" href="/cats/<%=res.locals.zip%>/<%=next%>">Next</a>
+    <a class="button" href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=next_index%>">Next</a>
   <% } %>
 
   <br><br>
-  <%= res.locals.current_index %>
-  <%= res.locals.searchresults.pets.length %>
-
-  SEND ME TO THE MORE
-  <%= res.locals.searchresults.offset %>
-  <%= res.locals.zip %>
 </div>

@@ -99,7 +99,7 @@ module.exports = {
          obj["city"] = allpets[i].contact.city.$t
          obj["state"] = allpets[i].contact.state.$t
          obj["zip"] = allpets[i].contact.zip.$t
-         obj["phone"] = allpets[i].contact.phone.$t.trim()
+         obj["phone"] = allpets[i].contact.phone.$t
          obj["email"] = allpets[i].contact.email.$t
 
          petsarray.push(obj)

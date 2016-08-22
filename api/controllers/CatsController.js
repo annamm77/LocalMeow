@@ -3,60 +3,48 @@ var wrappertest = require('../../WrapperTest')
 
 module.exports = {
 
-	index: function (req, res) {
+	// index: function (req, res) {
+	//
+	// 	if (req.params.number === undefined) {
+	// 		req.params.number = 0
+	// 	}
+	//
+	// 	if (req.params.zip === undefined) {
+	// 		var zip = req.query.zip
+	// 	} else {
+	// 		var zip = req.params.zip
+	// 	}
+	//
+	// 	wrappertest.getallpets(zip).then(function(wrapper){
+	// 			return res.view('index', {
+	// 				current_index: req.params.number,
+	// 				searchresults: wrapper,
+	// 				zip: zip
+	// 			});
+	// 	  })
+	// 	  .catch(function (err) {
+	// 			return res.view('404')
+	// 	  })
+	// },
 
-		if (req.params.number === undefined) {
-			req.params.number = 0
-		}
+	index: function(req, res) {
+		var zip = req.params.zip
+		var offset = req.params.offset
+		var current_index = req.params.number
 
-		if (req.params.zip === undefined) {
-			var zip = req.query.zip
-		} else {
-			var zip = req.params.zip
-		}
-
-		wrappertest.getallpets(zip).then(function(wrapper){
+		wrappertest.getmorepets(zip,offset).then(function(wrapper){
 				return res.view('index', {
-					current_index: req.params.number,
 					searchresults: wrapper,
-					zip: zip
+					current_index: current_index,
+					zip: zip,
+					offset: offset
 				});
 		  })
 		  .catch(function (err) {
-				return res.view('404')
-		  })
-	},
+				console.log(err)
+				return res.json(err)
+	  })
 
-	more: function(req, res) {
-
-		return res.view('test', {
-			current_index: req.params.number,
-			offset: req.params.offset,
-			zip: req.params.zip
-		});
-
-		// if (req.params.number === undefined) {
-		// 	req.params.number = 0
-		// }
-		//
-		// if (req.params.zip === undefined) {
-		// 	var zip = req.query.zip
-		// } else {
-		// 	var zip = req.params.zip
-		// }
-
-		//define lastoffset here
-
-		// wrappertest.getallpets(zip,lastoffset).then(function(wrapper){
-		// 		return res.view('index', {
-		// 			current_index: req.params.number,
-		// 			searchresults: wrapper,
-		// 			zip: zip
-		// 		});
-		// 	})
-		// 	.catch(function (err) {
-		// 		return res.view('404')
-		// 	})
 	},
 
 	favorite: function (req, res) {

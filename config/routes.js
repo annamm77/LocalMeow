@@ -54,14 +54,9 @@ module.exports.routes = {
     view: 'zipsearch'
   },
 
-  'get /cats/:zip/:number': {
-    controller: "CatsController",
-    action: "index"
-  },
-
   'get /cats/:zip/:offset/:number': {
     controller: "CatsController",
-    action: "more"
+    action: "index"
   },
 
   'get /favorite': {

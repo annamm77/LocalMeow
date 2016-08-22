@@ -59,7 +59,7 @@ module.exports.routes = {
     action: "index"
   },
 
-  'get /cats/:zip/:offset/:number/': {
+  'get /cats/:zip/:offset/:number': {
     controller: "CatsController",
     action: "more"
   },

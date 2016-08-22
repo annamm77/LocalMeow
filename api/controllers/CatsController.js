@@ -29,7 +29,11 @@ module.exports = {
 
 	more: function(req, res) {
 
-		return res.view('test');
+		return res.view('test', {
+			current_index: req.params.number,
+			offset: req.params.offset,
+			zip: req.params.zip
+		});
 
 		// if (req.params.number === undefined) {
 		// 	req.params.number = 0

@@ -39,9 +39,19 @@ module.exports = {
 		}
 
 		addfavorite(userid, petfinderid, function() {
+			req.flash('message', 'Favorited!');
 			return res.redirect('back');
 		});
 
+	},
+
+	getfavorites: function(req, res) {
+		var userid = req.allParams().userid.toString()
+		var ObjectId = require('sails-mongo/node_modules/mongodb').ObjectID;
+		//
+		// return res.view('favorites', {
+		// 	userid: userid,
+		// });
 	}
 }
 

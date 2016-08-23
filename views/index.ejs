@@ -2,9 +2,11 @@
 
 <ul>
   <li class="title"><a href="#">Seattle Shelter Cats</a></li>
-  <li><a href="#">Your Favorites</a></li>
+  <li><a href="/favorites/<%=req.session.passport.user%>">Your Favorites</a></li>
   <li><a href="/logout">Log Out</a></li>
 </ul>
+
+<%- req.flash('message') %>
 
 <div class="catprofile">
   <img class="profilepic" src= <%= res.locals.searchresults.pets[res.locals.current_index]["image"] %> >

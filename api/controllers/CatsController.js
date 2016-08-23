@@ -44,3 +44,6 @@ module.exports = {
 
 	}
 }
+
+// returns array of favorites
+// db.user.findOne({_id : ObjectId("57bcc4df7d74f5be26c3e62e")}).favorites

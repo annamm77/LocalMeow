@@ -1,8 +1,5 @@
 var rp = require('request-promise')
-var Promise = require("bluebird");
 var dotenv = require('dotenv');
-var ObjectId = require('sails-mongo/node_modules/mongodb').ObjectID;
-
 dotenv.load();
 
 module.exports = {
@@ -60,18 +57,6 @@ module.exports = {
     }
 
     return rp(options).promise()
-  },
-
-  favoritepet: function(userid,petfinderid) {
-    return new Promise(function (resolve, reject) {
-      console.log("I'm in the promise!!!")
-        User.native(function (err, collection) {
-          collection.update({_id: ObjectId(userid)},{$addToSet:{favorites:petfinderid}},
-          function (err) {
-            return err
-          });
-        })
-    });
   }
 
 }

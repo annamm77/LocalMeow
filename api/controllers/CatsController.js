@@ -1,5 +1,4 @@
 var petfinderwrapper = require('../../PetFinderWrapper')
-var Promise = require("bluebird");
 
 module.exports = {
 
@@ -26,21 +25,14 @@ module.exports = {
 	favorite: function (req, res) {
 		var petfinderid = req.allParams().petfinderid.toString()
 		var userid = req.allParams().userid.toString()
-		var ObjectId = require('sails-mongo/node_modules/mongodb').ObjectID;
+		console.log("I'm in the controller function!!!")
 
-		var addfavorite = function (userid,petfinderid) {
-	    return new Promise(function (resolve, reject) {
-				User.native(function (err, collection) {
-					collection.update({_id: ObjectId(userid)},{$addToSet:{favorites:petfinderid}},
-					function (err) {
-						return res.json(err)
-					});
-				})
-	    });
-		}
-
-		addfavorite(userid,petfinderid).then(function(result) {
-			return res.view('test');
+		petfinderwrapper.favoritepet(userid,petfinderid).then(function(){
+				return res.view('test');
+			})
+			.catch(function (err) {
+				console.log(err)
+				return res.json(err)
 		})
 
 	}

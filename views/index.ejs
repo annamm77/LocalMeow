@@ -24,5 +24,10 @@
     <a class="button" href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=next_index%>">Next</a>
   <% } %>
 
-  <br><br>
+  <form action="/test" method="get">
+    <input type="hidden" name="userid" value="<%=req.session.passport.user%>" />
+    <input type="hidden" name="petfinderid" value="<%=res.locals.searchresults.pets[res.locals.current_index]["id"]%>" />
+    <button>Favorite</button>
+  </form>
+
 </div>

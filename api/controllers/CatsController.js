@@ -23,23 +23,13 @@ module.exports = {
 	},
 
 	favorite: function (req, res) {
-		var catid = req.query.id
-		var catindex = req.query.num
-		var userid = req.query.user
+		var catid = req.params.id
+		var userid = req.params.user
 
-		//this works to find the right user in sails console.
-		// User.findOne({id:'57b742cf32ae8f6419f9ef90'}).exec(function(err, users){console.log(users)});
-
-		//native mongo
-			// db.user.findOne({_id : ObjectId("57b74523af3501a5190f22cd")})
-			// db.user.addToSet({ _id : ObjectId("57b74523af3501a5190f22cd") },{ $push: { favorites: "test" }})
+		db.user.update({_id:ObjectId("57b7c830f339d7e00379aca0")},{$addToSet:{favorites:"Test3"}})
+		db.user.find(ObjectId('57b7c830f339d7e00379aca0'))
 
 		//continue reseraching how to use native mongo db queries in sails.
-		User.native(function(err, collection) {
-			if (err) return res.serverError(err);
-				collection.addToSet({ _id : "ObjectId" + "(" + userid + ")" },{ $push: { favorites: catid }})
-			return res.view('test')
-		});
 
 	}
 

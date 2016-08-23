@@ -23,14 +23,18 @@ module.exports = {
 	},
 
 	favorite: function (req, res) {
-		var catid = req.params.id
-		var userid = req.params.user
+		var petfinderid = req.allParams().petfinderid.toString()
+		var userid = req.allParams().userid.toString()
 
-		db.user.update({_id:ObjectId("57b7c830f339d7e00379aca0")},{$addToSet:{favorites:"Test3"}})
-		db.user.find(ObjectId('57b7c830f339d7e00379aca0'))
+		// db.user.update({_id:ObjectId("57b7c830f339d7e00379aca0")},{$addToSet:{favorites:"Test3"}})
+		// db.user.find(ObjectId('57b7c830f339d7e00379aca0'))
 
-		//continue reseraching how to use native mongo db queries in sails.
+		var ObjectId = require('sails-mongo/node_modules/mongodb').ObjectID;
 
+		User.native(function (err, collection) {
+		  collection.update({_id: ObjectId(userid)},{$addToSet:{favorites:petfinderid}}, function (err) {
+				return res.json(err)
+			});
+		})
 	}
-
-};
+}

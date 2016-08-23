@@ -22,7 +22,7 @@ module.exports = {
 
 	},
 
-	favorite: function (req, res) {
+	addfavorite: function (req, res) {
 		var petfinderid = req.allParams().petfinderid.toString()
 		var userid = req.allParams().userid.toString()
 		var ObjectId = require('sails-mongo/node_modules/mongodb').ObjectID;

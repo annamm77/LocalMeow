@@ -59,7 +59,7 @@ module.exports.routes = {
     action: "index"
   },
 
-  'get /favorite': {
+  'post /favorite': {
     controller: "CatsController",
     action: "favorite"
   },

@@ -1,5 +1,4 @@
 var petfinderwrapper = require('../../PetFinderWrapper')
-var RSVP = require('rsvp');
 
 module.exports = {
 
@@ -40,7 +39,6 @@ module.exports = {
 		}
 
 		addfavorite(userid, petfinderid, function() {
-			console.log("I'm in the callback")
 			return res.redirect('back');
 		});
 

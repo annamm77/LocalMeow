@@ -49,17 +49,13 @@ module.exports = {
 		var userid = req.allParams().userid.toString()
 		var ObjectId = require('sails-mongo/node_modules/mongodb').ObjectID;
 
-		User.find().exec(function afterFind(err, users) {
-		  if (err) {
-		    return res.json(err);
-		  }
+		var query = User.find({ where: { _id: ObjectId(userid) }, limit: 1 })
 
+		query.exec(function callBack(err,results){
 			return res.view('test', {
-				test: users,
+				test: results
 			});
-		});
-		//
-		// (don't put code out here)
+    });
 
 		///////NOTES HERE
 		//Get favorites array from mongodb

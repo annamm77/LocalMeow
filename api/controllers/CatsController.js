@@ -48,10 +48,26 @@ module.exports = {
 	getfavorites: function(req, res) {
 		var userid = req.allParams().userid.toString()
 		var ObjectId = require('sails-mongo/node_modules/mongodb').ObjectID;
+
+		User.find().exec(function afterFind(err, users) {
+		  if (err) {
+		    return res.json(err);
+		  }
+
+			return res.view('test', {
+				test: users,
+			});
+		});
 		//
-		// return res.view('favorites', {
-		// 	userid: userid,
-		// });
+		// (don't put code out here)
+
+		///////NOTES HERE
+		//Get favorites array from mongodb
+
+		//Create Wrapper method to transform Pet ID --> Cat Object
+
+		//Return new array to view and iterate through
+
 	}
 }
 

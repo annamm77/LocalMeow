@@ -57,6 +57,46 @@ module.exports = {
     }
 
     return rp(options).promise()
+  },
+
+  getpet: function (petid) {
+    var options = {
+      uri: 'http://api.petfinder.com/pet.get?key=' + process.env.API_KEY + '&id=' + petid + '&format=json',
+      headers: {
+            'User-Agent': 'Request-Promise'
+        },
+     json: true,
+     transform2xxOnly: false,
+     transform: function (response) {
+       var pet = {}
+
+       pet["id"] = response.petfinder.pet.id.$t
+       pet["name"] = response.petfinder.pet.name.$t
+       pet["age"] = response.petfinder.pet.age.$t
+       if (response.petfinder.pet.sex.$t === "F") {
+         pet["sex"] = "Female"
+       }
+       if (response.petfinder.pet.sex.$t === "M") {
+         pet["sex"] = "Male"
+       }
+       pet["breed"] = response.petfinder.pet.breeds.breed.$t
+       pet["shelterid"] = response.petfinder.pet.shelterId.$t
+       pet["description"] = response.petfinder.pet.description.$t
+
+       pet["image"] = response.petfinder.pet.media.photos.photo[2].$t
+       
+       pet["address"] = response.petfinder.pet.contact.address1.$t
+       pet["city"] = response.petfinder.pet.contact.city.$t
+       pet["state"] = response.petfinder.pet.contact.state.$t
+       pet["zip"] = response.petfinder.pet.contact.zip.$t
+       pet["phone"] = response.petfinder.pet.contact.phone.$t
+       pet["email"] = response.petfinder.pet.contact.email.$t
+
+       return pet
+     }
+    }
+
+    return rp(options).promise()
   }
 
 }

@@ -46,26 +46,29 @@ module.exports = {
 	},
 
 	getfavorites: function(req, res) {
-		var userid = req.allParams().userid.toString()
+		var userid = req.allParams().userid
 		var ObjectId = require('sails-mongo/node_modules/mongodb').ObjectID;
-
 		var query = User.find({ where: { _id: ObjectId(userid) }, limit: 1 })
 
 		query.exec(function callBack(err,results){
+			var petsarray = ["boop"]
+
+			for (var i = 0, len = results[0].favorites.length; i < len; i++) {
+				petfinderwrapper.getpet(results[0].favorites[i]).then(function(pet){
+					petsarray.push(pet);
+				})
+					.catch(function (err) {
+						console.log(err)
+						return res.json(err)
+				})
+			}
+
 			return res.view('test', {
-				test: results
+				test: petsarray
 			});
+
     });
 
-		///////NOTES HERE
-		//Get favorites array from mongodb
-
-		//Create Wrapper method to transform Pet ID --> Cat Object
-
-		//Return new array to view and iterate through
 
 	}
 }
-
-// returns array of favorites
-// db.user.findOne({_id : ObjectId("57bcc4df7d74f5be26c3e62e")}).favorites

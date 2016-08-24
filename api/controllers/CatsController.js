@@ -50,25 +50,27 @@ module.exports = {
 		var ObjectId = require('sails-mongo/node_modules/mongodb').ObjectID;
 		var query = User.find({ where: { _id: ObjectId(userid) }, limit: 1 })
 
-		query.exec(function callBack(err,results){
-			var petsarray = ["boop"]
+		query.then(function (results) {
+			var petsarray = ["test"]
 
 			for (var i = 0, len = results[0].favorites.length; i < len; i++) {
 				petfinderwrapper.getpet(results[0].favorites[i]).then(function(pet){
-					petsarray.push(pet);
-				})
-					.catch(function (err) {
-						console.log(err)
-						return res.json(err)
+					petsarray.push(pet)
 				})
 			}
 
+			return petsarray
+		}).then(function(result) {
+			console.log(result)
+
 			return res.view('test', {
-				test: petsarray
+				test: result
 			});
-
-    });
-
+		})
+		.catch(function (err) {
+			console.log(err)
+			return res.json(err)
+		});
 
 	}
 }

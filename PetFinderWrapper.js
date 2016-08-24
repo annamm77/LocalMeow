@@ -6,7 +6,7 @@ module.exports = {
 
   getpets: function (zip, lastoffset) {
     var options = {
-      uri: 'http://api.petfinder.com/pet.find?key=' + process.env.API_KEY + '&animal=cat&location=' + zip + '&offset=' + lastoffset +'&format=json',
+      uri: 'https://api.petfinder.com/pet.find?key=' + process.env.API_KEY + '&animal=cat&location=' + zip + '&offset=' + lastoffset +'&format=json',
       headers: {
             'User-Agent': 'Request-Promise'
         },
@@ -61,7 +61,7 @@ module.exports = {
 
   getpet: function (petid) {
     var options = {
-      uri: 'http://api.petfinder.com/pet.get?key=' + process.env.API_KEY + '&id=' + petid + '&format=json',
+      uri: 'https://api.petfinder.com/pet.get?key=' + process.env.API_KEY + '&id=' + petid + '&format=json',
       headers: {
             'User-Agent': 'Request-Promise'
         },
@@ -84,7 +84,7 @@ module.exports = {
        pet["description"] = response.petfinder.pet.description.$t
 
        pet["image"] = response.petfinder.pet.media.photos.photo[2].$t
-       
+
        pet["address"] = response.petfinder.pet.contact.address1.$t
        pet["city"] = response.petfinder.pet.contact.city.$t
        pet["state"] = response.petfinder.pet.contact.state.$t

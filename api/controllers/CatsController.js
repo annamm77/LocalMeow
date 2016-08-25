@@ -42,7 +42,6 @@ module.exports = {
 			req.flash('message', 'Favorited!');
 			return res.redirect('back');
 		});
-
 	},
 
 	getfavorites: function(req, res) {
@@ -81,7 +80,6 @@ module.exports = {
 		unfavorite(userid, petfinderid, function() {
 			return res.redirect('back');
 		});
-
 	}
 
 }

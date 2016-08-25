@@ -49,28 +49,24 @@ module.exports = {
 		var userid = req.allParams().userid
 		var ObjectId = require('sails-mongo/node_modules/mongodb').ObjectID;
 		var query = User.find({ where: { _id: ObjectId(userid) }, limit: 1 })
+		var petsarray = ["test"]
 
 		query.then(function (results) {
-			var petsarray = ["test"]
-
-			for (var i = 0, len = results[0].favorites.length; i < len; i++) {
-				petfinderwrapper.getpet(results[0].favorites[i]).then(function(pet){
-					petsarray.push(pet)
-				})
-			}
-
-			return petsarray
+		  return Promise.all(results[0].favorites.map(function(favorite) {
+		    return petfinderwrapper.getpet(favorite)
+		  }))
 		}).then(function(result) {
-			console.log(result)
+		  console.log("The result headed to the view is: " + result)
 
-			return res.view('test', {
-				test: result
-			});
+		  return res.view('test', {
+		    test: result
+		  });
 		})
 		.catch(function (err) {
-			console.log(err)
-			return res.json(err)
+		  console.log(err)
+		  return res.json(err)
 		});
 
-	}
+
+	} //end of get favorites
 }

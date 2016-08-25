@@ -9,7 +9,28 @@
 <%- req.flash('message') %>
 
 <div class="catprofile">
+<!-- BEGIN BUTTON NAV -->
+  <% next_index = parseInt(res.locals.current_index) + 1 %>
+  <% next_offset = parseInt(res.locals.offset) + 25 %>
 
+  <% if (next_index === res.locals.searchresults.pets.length) { %>
+    <a href="/cats/<%=res.locals.zip%>/<%=next_offset%>/0">Next</a>
+  <% } else { %>
+    <a href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=next_index%>">Next</a>
+  <% } %>
+
+  <form action="/favorite" method="post">
+    <input type="hidden" name="userid" value="<%=req.session.passport.user%>" />
+    <input type="hidden" name="petfinderid" value="<%=res.locals.searchresults.pets[res.locals.current_index]["id"]%>" />
+    <button>Favorite</button>
+  </form>
+
+  <% if (res.locals.details === undefined) { %>
+    <a href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=res.locals.current_index%>?details=true">Show Details</a>
+  <% } else { %>
+    <a href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=res.locals.current_index%>">Close Details</a>
+  <% } %>
+<!--  BEGIN CAT NAME/PIC/DETAILS -->
   <% if (res.locals.details === undefined) { %>
     <img class="profilepic" src=<%= res.locals.searchresults.pets[res.locals.current_index]["image"] %> >
     <p class="profilename"><%= res.locals.searchresults.pets[res.locals.current_index]["name"] %></p>
@@ -27,22 +48,5 @@
     <%= res.locals.searchresults.pets[res.locals.current_index]["email"] %>
 
   <% } %>
-
-  <% next_index = parseInt(res.locals.current_index) + 1 %>
-  <% next_offset = parseInt(res.locals.offset) + 25 %>
-
-  <% if (next_index === res.locals.searchresults.pets.length) { %>
-    <a class="button" href="/cats/<%=res.locals.zip%>/<%=next_offset%>/0">Next</a>
-  <% } else { %>
-    <a class="button" href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=next_index%>">Next</a>
-  <% } %>
-<br><br>
-  <form action="/favorite" method="post">
-    <input type="hidden" name="userid" value="<%=req.session.passport.user%>" />
-    <input type="hidden" name="petfinderid" value="<%=res.locals.searchresults.pets[res.locals.current_index]["id"]%>" />
-    <button class="button">Favorite</button>
-  </form>
-
-  <a class="button" href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=res.locals.current_index%>?details=true">Details</a>
 
 </div>

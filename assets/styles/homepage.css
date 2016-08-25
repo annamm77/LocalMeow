@@ -1,0 +1,34 @@
+body {
+  background-color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+}
+
+html {
+  background: url("/images/onecat.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1 {
+  font-family: 'Nixie One', cursive;
+  /*text-align: center;*/
+}
+
+.tagline {
+  font-family: 'Nixie One', cursive;
+  font-style: italic;
+}
+
+#welcomelink {
+  text-decoration: none;
+  font-family: 'Quicksand', sans-serif;
+  float: left;
+  clear: both;
+  color: #096778;
+}
+
+#welcomelink:hover {
+    color: #58A8B7;
+}

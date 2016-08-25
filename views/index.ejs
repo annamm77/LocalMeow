@@ -13,15 +13,20 @@
 
 <!--  PREVIOUS BUTTON -->
   <% previous_index = parseInt(res.locals.current_index) - 1 %>
+  <% previous_offset = parseInt(res.locals.offset) - 25 %>
+
   <%= res.locals.current_index %>
   <%= res.locals.offset %>
 
   <% if (res.locals.current_index == 0 && res.locals.offset == 0) { %>
     <!-- don't render anything if on first result -->
+  <% } else if (res.locals.current_index == 0 && res.locals.offset > 0) { %>
+    <!-- return last result of previous offset -->
+    <a href="/cats/<%=res.locals.zip%>/<%=previous_offset%>/<%=previous_index%>">Previous</a>
   <% } else { %>
+    <!-- back one in the same offset group -->
     <a href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=previous_index%>">Previous</a>
   <% } %>
-
 <!--  NEXT BUTTON -->
   <% next_index = parseInt(res.locals.current_index) + 1 %>
   <% next_offset = parseInt(res.locals.offset) + 25 %>
@@ -43,6 +48,8 @@
   <% } else { %>
     <a href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=res.locals.current_index%>">Close Details</a>
   <% } %>
+  <br><br>
+
 <!--  BEGIN CAT NAME/PIC/DETAILS -->
   <% if (res.locals.details === undefined) { %>
     <img class="profilepic" src=<%= res.locals.searchresults.pets[res.locals.current_index]["image"] %> >

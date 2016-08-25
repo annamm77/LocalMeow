@@ -1,4 +1,5 @@
 var petfinderwrapper = require('../../PetFinderWrapper')
+var ObjectId = require('sails-mongo/node_modules/mongodb').ObjectID;
 
 module.exports = {
 
@@ -25,7 +26,6 @@ module.exports = {
 	addfavorite: function (req, res) {
 		var petfinderid = req.allParams().petfinderid.toString()
 		var userid = req.allParams().userid.toString()
-		var ObjectId = require('sails-mongo/node_modules/mongodb').ObjectID;
 
 		function addfavorite(userid, petfinderid, callback) {
 			User.native(function (err, collection) {
@@ -46,27 +46,21 @@ module.exports = {
 	},
 
 	getfavorites: function(req, res) {
-		var userid = req.allParams().userid
-		var ObjectId = require('sails-mongo/node_modules/mongodb').ObjectID;
-		var query = User.find({ where: { _id: ObjectId(userid) }, limit: 1 })
-		var petsarray = ["test"]
+		var userid = req.params.userid
 
-		query.then(function (results) {
+		User.find({id: userid}).then(function (results) {
 		  return Promise.all(results[0].favorites.map(function(favorite) {
 		    return petfinderwrapper.getpet(favorite)
 		  }))
-		}).then(function(result) {
-		  console.log("The result headed to the view is: " + result)
-
-		  return res.view('test', {
-		    test: result
+		}).then(function(petobjects) {
+		  return res.view('favorites', {
+		    favorites: petobjects
 		  });
 		})
 		.catch(function (err) {
 		  console.log(err)
 		  return res.json(err)
 		});
-
-
-	} //end of get favorites
+	}
+	
 }

@@ -1,2 +1,6 @@
-<h1> I'm where all your favorites go! </h1>
-<%= Object.keys(res.locals.userid[0]) %>
+<h1> Your Favorites </h1>
+
+<% for (var i = 0; i < res.locals.favorites.length; i++) { %>
+  <%= res.locals.favorites[i]["name"] %>
+  <br>
+<% } %>

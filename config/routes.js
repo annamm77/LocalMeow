@@ -64,6 +64,11 @@ module.exports.routes = {
     action: "addfavorite"
   },
 
+  'post /unfavorite': {
+    controller: "CatsController",
+    action: "unfavorite"
+  },
+
   'get /favorites/:userid': {
     controller: "CatsController",
     action: "getfavorites"

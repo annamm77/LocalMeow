@@ -61,6 +61,27 @@ module.exports = {
 		  console.log(err)
 		  return res.json(err)
 		});
+	},
+
+	unfavorite: function (req, res) {
+		var petfinderid = req.allParams().petfinderid.toString()
+		var userid = req.allParams().userid.toString()
+
+		function unfavorite(userid, petfinderid, callback) {
+			User.native(function (err, collection) {
+				collection.update({_id: ObjectId(userid)},{$pull:{favorites:petfinderid}},
+					function (err) {
+						console.log(err)
+					}
+				)
+			})
+			callback()
+		}
+
+		unfavorite(userid, petfinderid, function() {
+			return res.redirect('back');
+		});
+
 	}
-	
+
 }

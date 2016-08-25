@@ -2,5 +2,11 @@
 
 <% for (var i = 0; i < res.locals.favorites.length; i++) { %>
   <%= res.locals.favorites[i]["name"] %>
+
+  <form action="/unfavorite" method="post">
+    <input type="hidden" name="userid" value="<%=req.session.passport.user%>" />
+    <input type="hidden" name="petfinderid" value="<%=res.locals.favorites[i]["id"]%>" />
+    <button class="button">Unfavorite</button>
+  </form>
   <br>
 <% } %>

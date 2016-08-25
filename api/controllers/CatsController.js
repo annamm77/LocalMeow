@@ -7,13 +7,15 @@ module.exports = {
 		var zip = req.params.zip
 		var offset = req.params.offset
 		var current_index = req.params.number
+		var details = req.param('details');
 
 		petfinderwrapper.getpets(zip,offset).then(function(wrapper){
 				return res.view('index', {
 					searchresults: wrapper,
 					current_index: current_index,
 					zip: zip,
-					offset: offset
+					offset: offset,
+					details: details
 				});
 		  })
 		  .catch(function (err) {

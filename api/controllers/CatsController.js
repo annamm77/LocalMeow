@@ -8,6 +8,7 @@ module.exports = {
 		var offset = req.params.offset
 		var current_index = req.params.number
 		var details = req.param('details');
+		var last_index = req.param('prev');
 
 		petfinderwrapper.getpets(zip,offset).then(function(wrapper){
 				return res.view('index', {
@@ -15,7 +16,8 @@ module.exports = {
 					current_index: current_index,
 					zip: zip,
 					offset: offset,
-					details: details
+					details: details,
+					last_index: last_index
 				});
 		  })
 		  .catch(function (err) {

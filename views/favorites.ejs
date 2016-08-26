@@ -1,12 +1,26 @@
 <h1> Your Favorites </h1>
 
 <% for (var i = 0; i < res.locals.favorites.length; i++) { %>
-  <%= res.locals.favorites[i]["name"] %>
+
+  <% if (res.locals.details === i.toString()){ %>
+    <%= res.locals.favorites[i]["name"] %>
+    <img src=<%=res.locals.favorites[i]["image"]%> >
+    SO MANY DETAILS GO HERE!!!
+    <a href="/favorites/<%=req.params.userid%>">Close Details</a>
+  <% } else {%>
+    <%= res.locals.favorites[i]["name"] %>
+    <img src=<%=res.locals.favorites[i]["image"]%> >
+    <a href="/favorites/<%=req.params.userid%>?details=<%=i%>">Show Details</a>
+  <% } %>
+
+  <br>
 
   <form action="/unfavorite" method="post">
     <input type="hidden" name="userid" value="<%=req.session.passport.user%>" />
     <input type="hidden" name="petfinderid" value="<%=res.locals.favorites[i]["id"]%>" />
     <button class="button">Unfavorite</button>
   </form>
+
+
   <br>
 <% } %>

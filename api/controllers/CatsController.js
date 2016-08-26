@@ -50,6 +50,7 @@ module.exports = {
 
 	getfavorites: function(req, res) {
 		var userid = req.params.userid
+		var details = req.param('details')
 
 		User.find({id: userid}).then(function (results) {
 		  return Promise.all(results[0].favorites.map(function(favorite) {
@@ -57,7 +58,8 @@ module.exports = {
 		  }))
 		}).then(function(petobjects) {
 		  return res.view('favorites', {
-		    favorites: petobjects
+		    favorites: petobjects,
+				details: details
 		  });
 		})
 		.catch(function (err) {

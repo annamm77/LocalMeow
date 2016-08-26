@@ -1,10 +1,11 @@
 body {
+  margin-top: 40rem;
   background-color: rgba(255, 255, 255, 0.75);
   text-align: center;
 }
 
 html {
-  background: url("/images/twocats.jpeg") no-repeat center center fixed;
+  background: url("/images/onecat.jpeg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -13,22 +14,25 @@ html {
 
 h1 {
   font-family: 'Nixie One', cursive;
+  font-size: 9vw;
   /*text-align: center;*/
 }
 
 .tagline {
   font-family: 'Nixie One', cursive;
   font-style: italic;
+  font-size: 2.5vw;
 }
 
-#welcomelink {
+.welcomelink {
   text-decoration: none;
   font-family: 'Quicksand', sans-serif;
-  float: left;
-  clear: both;
   color: #096778;
+  padding-right: 6vw;
+  padding-left: 6vw;
+  font-size: 2vw;
 }
 
-#welcomelink:hover {
-    color: #58A8B7;
+.welcomelink:hover {
+  color: #58A8B7;
 }

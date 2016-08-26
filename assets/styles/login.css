@@ -1,0 +1,30 @@
+body {
+  margin-top: 35rem;
+  background-color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+}
+
+html {
+  background: url("/images/onecat.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1 {
+  font-family: 'Nixie One', cursive;
+  font-size: 9vw;
+}
+
+.tagline {
+  font-family: 'Nixie One', cursive;
+  font-style: italic;
+  font-size: 2.5vw;
+}
+
+.logincontainer {
+  width: 50%;
+  margin:0 auto;
+  text-align: center;
+}

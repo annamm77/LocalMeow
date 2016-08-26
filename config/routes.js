@@ -40,7 +40,10 @@ module.exports.routes = {
   },
 
   'get /login': {
-    view: 'login'
+    view: 'login',
+    locals: {
+      layout: 'homelayout'
+    }
   },
 
   'post /user': 'UserController.create',

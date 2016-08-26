@@ -53,7 +53,10 @@ module.exports.routes = {
   '/logout': 'AuthController.logout',
 
   'get /signup': {
-    view: 'signup'
+    view: 'signup',
+    locals: {
+      layout: 'homelayout'
+    }
   },
 
   'get /search': {

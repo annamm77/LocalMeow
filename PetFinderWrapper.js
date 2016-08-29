@@ -1,6 +1,10 @@
 var rp = require('request-promise')
-var dotenv = require('dotenv');
-dotenv.load();
+
+var node_env = process.env.NODE_ENV || "development"
+  if (node_env === "development") {
+    var dotenv = require('dotenv');
+    dotenv.load();
+  }
 
 module.exports = {
 

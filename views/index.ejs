@@ -57,18 +57,30 @@
       <img class="img-responsive profilepic" src=<%= res.locals.searchresults.pets[res.locals.current_index]["image"] %> >
       <p class="profilename"><%= res.locals.searchresults.pets[res.locals.current_index]["name"] %></p>
     <% } else { %>
-      <img class="profilepic" src=<%= res.locals.searchresults.pets[res.locals.current_index]["image"] %> >
-      <%= res.locals.searchresults.pets[res.locals.current_index]["name"] %>
-      <%= res.locals.searchresults.pets[res.locals.current_index]["sex"] %>
-      <%= res.locals.searchresults.pets[res.locals.current_index]["breed"] %>
-      <%= res.locals.searchresults.pets[res.locals.current_index]["description"] %>
-      <%= res.locals.searchresults.pets[res.locals.current_index]["address"] %>
-      <%= res.locals.searchresults.pets[res.locals.current_index]["city"] %>
-      <%= res.locals.searchresults.pets[res.locals.current_index]["state"] %>
-      <%= res.locals.searchresults.pets[res.locals.current_index]["zip"] %>
-      <%= res.locals.searchresults.pets[res.locals.current_index]["phone"] %>
-      <%= res.locals.searchresults.pets[res.locals.current_index]["email"] %>
 
+      <div class="wrapper">
+        <div class="pic">
+          <img class="profilepic detailspic" src=<%= res.locals.searchresults.pets[res.locals.current_index]["image"] %> >
+        </div>
+
+        <div class="details">
+          <p>Name: <%= res.locals.searchresults.pets[res.locals.current_index]["name"] %></p>
+          <p>Sex: <%= res.locals.searchresults.pets[res.locals.current_index]["sex"] %></p>
+          <p>Age: <%= res.locals.searchresults.pets[res.locals.current_index]["age"] %></p>
+          <p>Breed: <%= res.locals.searchresults.pets[res.locals.current_index]["breed"] %></p>
+        </div>
+      </div>
+
+      <div class="descriptionandcontact">
+        <p><%= res.locals.searchresults.pets[res.locals.current_index]["description"] %></p>
+
+        <p><%= res.locals.searchresults.pets[res.locals.current_index]["address"] %>,
+        <%= res.locals.searchresults.pets[res.locals.current_index]["city"] %>,
+        <%= res.locals.searchresults.pets[res.locals.current_index]["state"] %>
+        <%= res.locals.searchresults.pets[res.locals.current_index]["zip"] %></p>
+        <p><%= res.locals.searchresults.pets[res.locals.current_index]["phone"] %></p>
+        <p><%= res.locals.searchresults.pets[res.locals.current_index]["email"] %></p>
+      </div>
     <% } %>
   </div>
 

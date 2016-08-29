@@ -6,7 +6,7 @@ body {
 .zipsearch {
   /*HAVE THIS MATCH THE CAT PROFILE DIV*/
   background-color: #EE3724;
-  padding: 4rem;2
+  padding: 4rem;
   width: 60%
 }
 
@@ -18,4 +18,29 @@ body {
   height: 30vw;
   width: auto;
   margin: auto;
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.pic {
+  display: inline-block;
+}
+
+.details {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  font-size: 2.5rem;
+}
+
+.catprofile .detailspic {
+  height: 15vw;
+  width: auto;
+}
+
+.descriptionandcontact {
+  clear: both;
+  padding: 2rem 4rem
 }

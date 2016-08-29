@@ -9,7 +9,7 @@
       <form action="/favorite" method="post">
         <input type="hidden" name="userid" value="<%=req.session.passport.user%>" />
         <input type="hidden" name="petfinderid" value="<%=res.locals.searchresults.pets[res.locals.current_index]["id"]%>" />
-        <button class="btn btn-default">Favorite</button>
+        <button class="btn btn-success">Favorite</button>
       </form>
 
     <br>

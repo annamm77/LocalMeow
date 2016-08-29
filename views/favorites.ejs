@@ -32,7 +32,7 @@
       <form action="/unfavorite" method="post">
         <input type="hidden" name="userid" value="<%=req.session.passport.user%>" />
         <input type="hidden" name="petfinderid" value="<%=res.locals.favorites[i]["id"]%>" />
-        <button class="btn btn-default">Unfavorite</button>
+        <button class="btn btn-danger">Unfavorite</button>
       </form>
 
     </div>

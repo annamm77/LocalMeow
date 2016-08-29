@@ -1,7 +1,19 @@
-<h1> Search </h1>
 
-<form onsubmit="location.href='/cats/' + document.getElementById('zip').value + '/0' + '/0'; return false;">
-  Zip Code:<br>
-  <input type="text" id="zip" />
-  <input type="submit" />
-</form>
+<div class="container-fluid zipsearch">
+
+  <div class="row">
+    Enter a zip code to begin your search for local shelter cats.
+  </div>
+
+  <br><br>
+
+  <div class="row">
+    <form class="form-inline" onsubmit="location.href='/cats/' + document.getElementById('zip').value + '/0' + '/0'; return false;">
+      <div class="form-group">
+        <label class="sr-only" for="zipcode">Zip Code</label>
+        <input type="text" class="form-control" id="zip" placeholder="Zip Code">
+      </div>
+      <button type="submit" class="btn btn-default">Search</button>
+    </form>
+  </div>
+</div>

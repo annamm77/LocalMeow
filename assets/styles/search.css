@@ -1,0 +1,11 @@
+.zipsearch {
+  /*HAVE THIS MATCH THE CAT PROFILE DIV*/
+  background-color: #EE3724;
+  padding: 4rem;
+  width: 60%
+}
+
+body {
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+}

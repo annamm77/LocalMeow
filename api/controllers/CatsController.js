@@ -56,9 +56,13 @@ module.exports = {
 		  return Promise.all(results[0].favorites.map(function(favorite) {
 		    return petfinderwrapper.getpet(favorite)
 		  }))
-		}).then(function(petobjects) {
+		// }).then(function(petobjects) {
+		// 	return Promise.all(petobjects.map(function(pet) {
+		// 		//remove all objects with ["code"] of 201
+		// 	}))
+		}).then(function(finalpetobjects) {
 		  return res.view('favorites', {
-		    favorites: petobjects,
+		    favorites: finalpetobjects,
 				details: details
 		  });
 		})

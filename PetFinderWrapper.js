@@ -92,6 +92,7 @@ module.exports = {
        pet["phone"] = response.petfinder.pet.contact.phone.$t
        pet["email"] = response.petfinder.pet.contact.email.$t
 
+       pet["code"] = response.petfinder.header.status.code.$t
        return pet
      }
     }

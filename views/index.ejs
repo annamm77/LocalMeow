@@ -1,65 +1,75 @@
-<%- req.flash('message') %>
-<li><a href="/favorites/<%=req.session.passport.user%>">Your Favorites</a></li>
+<div class="container-fluid">
 
-<div class="catprofile">
-<!-- BEGIN BUTTON NAV -->
+  <div class="row flashmessage">
+    <%- req.flash('message') %>
+  </div>
 
-<!--  PREVIOUS BUTTON -->
-  <% previous_index = parseInt(res.locals.current_index) - 1 %>
-  <% previous_offset = parseInt(res.locals.offset) - 25 %>
-  <% previousoffset_lastindex = res.locals.last_index %>
+  <div class="row buttonnav">
+    <!-- FAVORITE BUTTON  -->
+      <form action="/favorite" method="post">
+        <input type="hidden" name="userid" value="<%=req.session.passport.user%>" />
+        <input type="hidden" name="petfinderid" value="<%=res.locals.searchresults.pets[res.locals.current_index]["id"]%>" />
+        <button class="btn btn-default">Favorite</button>
+      </form>
 
-  <% if (res.locals.current_index == 0 && res.locals.offset == 0) { %>
-    <!-- don't render anything if on first result -->
-  <% } else if (res.locals.current_index == 0 && res.locals.offset > 0) { %>
-    <!-- return last result of previous offset -->
-    <a href="/cats/<%=res.locals.zip%>/<%=previous_offset%>/<%=previousoffset_lastindex%>">Previous</a>
-  <% } else { %>
-    <!-- back one in the same offset group -->
-    <a href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=previous_index%>">Previous</a>
-  <% } %>
+    <br>
 
-<!--  NEXT BUTTON -->
-  <% next_index = parseInt(res.locals.current_index) + 1 %>
-  <% next_offset = parseInt(res.locals.offset) + 25 %>
-  <% last_index = res.locals.searchresults.pets.length - 1 %>
+    <!--  PREVIOUS BUTTON -->
+      <% previous_index = parseInt(res.locals.current_index) - 1 %>
+      <% previous_offset = parseInt(res.locals.offset) - 25 %>
+      <% previousoffset_lastindex = res.locals.last_index %>
 
-  <% if (next_index === res.locals.searchresults.pets.length) { %>
-    <a href="/cats/<%=res.locals.zip%>/<%=next_offset%>/0?prev=<%=last_index%>">Next</a>
-  <% } else { %>
-    <a href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=next_index%>">Next</a>
-  <% } %>
+      <% if (res.locals.current_index == 0 && res.locals.offset == 0) { %>
+        <!-- don't render anything if on first result -->
+      <% } else if (res.locals.current_index == 0 && res.locals.offset > 0) { %>
+        <!-- return last result of previous offset -->
+        <a class="btn btn-default btn-lg" href="/cats/<%=res.locals.zip%>/<%=previous_offset%>/<%=previousoffset_lastindex%>"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <% } else { %>
+        <!-- back one in the same offset group -->
+        <a class="btn btn-default btn-lg" href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=previous_index%>"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <% } %>
 
-  <form action="/favorite" method="post">
-    <input type="hidden" name="userid" value="<%=req.session.passport.user%>" />
-    <input type="hidden" name="petfinderid" value="<%=res.locals.searchresults.pets[res.locals.current_index]["id"]%>" />
-    <button>Favorite</button>
-  </form>
+    <!--  NEXT BUTTON -->
+      <% next_index = parseInt(res.locals.current_index) + 1 %>
+      <% next_offset = parseInt(res.locals.offset) + 25 %>
+      <% last_index = res.locals.searchresults.pets.length - 1 %>
 
-  <% if (res.locals.details === undefined) { %>
-    <a href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=res.locals.current_index%>?details=true">Show Details</a>
-  <% } else { %>
-    <a href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=res.locals.current_index%>">Close Details</a>
-  <% } %>
-  <br><br>
+      <% if (next_index === res.locals.searchresults.pets.length) { %>
+        <a class="btn btn-default btn-lg" href="/cats/<%=res.locals.zip%>/<%=next_offset%>/0?prev=<%=last_index%>"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      <% } else { %>
+        <a class="btn btn-default btn-lg" href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=next_index%>"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      <% } %>
 
-<!--  BEGIN CAT NAME/PIC/DETAILS -->
-  <% if (res.locals.details === undefined) { %>
-    <img class="profilepic" src=<%= res.locals.searchresults.pets[res.locals.current_index]["image"] %> >
-    <p class="profilename"><%= res.locals.searchresults.pets[res.locals.current_index]["name"] %></p>
-  <% } else { %>
-    <img class="profilepic" src=<%= res.locals.searchresults.pets[res.locals.current_index]["image"] %> >
-    <%= res.locals.searchresults.pets[res.locals.current_index]["name"] %>
-    <%= res.locals.searchresults.pets[res.locals.current_index]["sex"] %>
-    <%= res.locals.searchresults.pets[res.locals.current_index]["breed"] %>
-    <%= res.locals.searchresults.pets[res.locals.current_index]["description"] %>
-    <%= res.locals.searchresults.pets[res.locals.current_index]["address"] %>
-    <%= res.locals.searchresults.pets[res.locals.current_index]["city"] %>
-    <%= res.locals.searchresults.pets[res.locals.current_index]["state"] %>
-    <%= res.locals.searchresults.pets[res.locals.current_index]["zip"] %>
-    <%= res.locals.searchresults.pets[res.locals.current_index]["phone"] %>
-    <%= res.locals.searchresults.pets[res.locals.current_index]["email"] %>
+    <br><br>
 
-  <% } %>
+    <!-- SHOW DETAILS BUTTON -->
+      <% if (res.locals.details === undefined) { %>
+        <a class="btn btn-default" href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=res.locals.current_index%>?details=true">Show Details</a>
+      <% } else { %>
+        <a class="btn btn-default" href="/cats/<%=res.locals.zip%>/<%=res.locals.offset%>/<%=res.locals.current_index%>">Close Details</a>
+      <% } %>
+  </div>
+
+  <br>
+
+  <div class="row catprofile">
+    <% if (res.locals.details === undefined) { %>
+      <img class="profilepic" src=<%= res.locals.searchresults.pets[res.locals.current_index]["image"] %> >
+      <p class="profilename"><%= res.locals.searchresults.pets[res.locals.current_index]["name"] %></p>
+    <% } else { %>
+      <img class="profilepic" src=<%= res.locals.searchresults.pets[res.locals.current_index]["image"] %> >
+      <%= res.locals.searchresults.pets[res.locals.current_index]["name"] %>
+      <%= res.locals.searchresults.pets[res.locals.current_index]["sex"] %>
+      <%= res.locals.searchresults.pets[res.locals.current_index]["breed"] %>
+      <%= res.locals.searchresults.pets[res.locals.current_index]["description"] %>
+      <%= res.locals.searchresults.pets[res.locals.current_index]["address"] %>
+      <%= res.locals.searchresults.pets[res.locals.current_index]["city"] %>
+      <%= res.locals.searchresults.pets[res.locals.current_index]["state"] %>
+      <%= res.locals.searchresults.pets[res.locals.current_index]["zip"] %>
+      <%= res.locals.searchresults.pets[res.locals.current_index]["phone"] %>
+      <%= res.locals.searchresults.pets[res.locals.current_index]["email"] %>
+
+    <% } %>
+  </div>
 
 </div>

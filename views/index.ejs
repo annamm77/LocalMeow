@@ -54,7 +54,7 @@
 
   <div class="row catprofile">
     <% if (res.locals.details === undefined) { %>
-      <img class="profilepic" src=<%= res.locals.searchresults.pets[res.locals.current_index]["image"] %> >
+      <img class="img-responsive profilepic" src=<%= res.locals.searchresults.pets[res.locals.current_index]["image"] %> >
       <p class="profilename"><%= res.locals.searchresults.pets[res.locals.current_index]["name"] %></p>
     <% } else { %>
       <img class="profilepic" src=<%= res.locals.searchresults.pets[res.locals.current_index]["image"] %> >

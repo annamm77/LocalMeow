@@ -63,6 +63,10 @@ body {
   width: auto;
 }
 
+.selectedcard {
+  background-color: #e7e7e7;
+}
+
 .allfavecats {
   text-align: center;
 }
@@ -75,6 +79,7 @@ body {
   box-shadow: 1px 2px 3px 1px rgba(0,0,0,0.2);
   padding: 3rem;
   margin-bottom: 2rem;
+  background-color: #e7e7e7;
 }
 
 .bigcard .card-img-top {

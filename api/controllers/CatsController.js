@@ -89,7 +89,7 @@ module.exports = {
 		}
 
 		unfavorite(userid, petfinderid, function() {
-			return res.redirect('back');
+			return res.redirect('/favorites/' + userid);
 		});
 	}
 

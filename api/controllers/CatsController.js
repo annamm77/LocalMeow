@@ -72,6 +72,7 @@ module.exports = {
 		});
 	},
 
+
 	unfavorite: function (req, res) {
 		var petfinderid = req.allParams().petfinderid.toString()
 		var userid = req.allParams().userid.toString()

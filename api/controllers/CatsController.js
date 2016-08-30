@@ -7,8 +7,8 @@ module.exports = {
 		var zip = req.params.zip
 		var offset = req.params.offset
 		var current_index = req.params.number
-		var details = req.param('details');
-		var last_index = req.param('prev');
+		var details = req.param('details')
+		var last_index = req.param('prev')
 
 		petfinderwrapper.getpets(zip,offset).then(function(wrapper){
 				return res.view('index', {
@@ -43,7 +43,6 @@ module.exports = {
 		}
 
 		addfavorite(userid, petfinderid, function() {
-			req.flash('message', 'Favorited!');
 			return res.redirect('back');
 		});
 	},

@@ -1,16 +1,18 @@
 <link rel="stylesheet" href="/styles/signin.css">
 
-<h1>Local Meow</h1>
-<p class="text-muted tagline">sign up to continue</p>
+<div class="bottomdiv navbar-fixed-bottom">
 
-<div class="signincontainer">
+  <h1>Local Meow</h1>
+  <p class="text-muted">Enter your new account's email and password to continue.</p>
+
   <form class="form-signin" method="POST" action="/user">
     <label for="inputEmail" class="sr-only">Email address</label>
-    <input name="email" class="form-control" placeholder="Email" required autofocus>
-
+    <input name="email" class="input-lg" placeholder="Email" required autofocus>
+    <br>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-
-    <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+    <input type="password" name="password" id="inputPassword" class="input-lg" placeholder="Password" required>
+    <br>
+    <button class="btn btn-lg btn-primary" type="submit">Sign Up!</button>
   </form>
+
 </div>

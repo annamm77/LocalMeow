@@ -1,40 +1,42 @@
 <div class="container-fluid">
-  <% for (var i = 0; i < res.locals.favorites.length; i++) { %>
-    <div class="row catprofile well">
-      <p class="profilename"><%= res.locals.favorites[i]["name"] %></p>
-      <img class="img-responsive profilepic" src=<%=res.locals.favorites[i]["image"]%> >
 
-      <% if (res.locals.details === i.toString()){ %>
-        <div class="details">
-          <p>Sex: <%= res.locals.favorites[i]["sex"] %></p>
-          <p>Age: <%= res.locals.favorites[i]["age"] %></p>
-          <p>Breed: <%= res.locals.favorites[i]["breed"] %></p>
-        </div>
+  <% if (res.locals.details != undefined) { %>
+    <% var index = res.locals.details %>
 
-      <div class="descriptionandcontact">
-        <p><%= res.locals.favorites[i]["description"] %></p>
-
-        <p><%= res.locals.favorites[i]["address"] %>,
-        <%= res.locals.favorites[i]["city"] %>,
-        <%= res.locals.favorites[i]["state"] %>
-        <%= res.locals.favorites[i]["zip"] %></p>
-        <p><%= res.locals.favorites[i]["phone"] %></p>
-        <p><%= res.locals.favorites[i]["email"] %></p>
-      </div>
-
-        <a class="btn btn-default" href="/favorites/<%=req.params.userid%>">Close Details</a>
-      <% } else {%>
-        <a class="btn btn-default" href="/favorites/<%=req.params.userid%>?details=<%=i%>">Show Details</a>
-      <% } %>
-
-      <br><br>
-
-      <form action="/unfavorite" method="post">
-        <input type="hidden" name="userid" value="<%=req.session.passport.user%>" />
-        <input type="hidden" name="petfinderid" value="<%=res.locals.favorites[i]["id"]%>" />
-        <button class="btn btn-danger">Unfavorite</button>
-      </form>
-
+    <div class="details">
+      <p>Name: <%= res.locals.favorites[index]["name"] %></p>
+      <p>Sex: <%= res.locals.favorites[index]["sex"] %></p>
+      <p>Age: <%= res.locals.favorites[index]["age"] %></p>
+      <p>Breed: <%= res.locals.favorites[index]["breed"] %></p>
     </div>
+
+    <div class="descriptionandcontact">
+      <p><%= res.locals.favorites[index]["description"] %></p>
+
+      <p><%= res.locals.favorites[index]["address"] %>,
+      <%= res.locals.favorites[index]["city"] %>,
+      <%= res.locals.favorites[index]["state"] %>
+      <%= res.locals.favorites[index]["zip"] %></p>
+      <p><%= res.locals.favorites[index]["phone"] %></p>
+      <p><%= res.locals.favorites[index]["email"] %></p>
+    </div>
+
+    <a class="btn btn-default" href="/favorites/<%=req.params.userid%>">Close Details</a>
+  <% } else {%>
+    NO DETAILS YET!!!!
   <% } %>
+
+    <% for (var i = 0; i < res.locals.favorites.length; i++) { %>
+        <p class="profilename"><%= res.locals.favorites[i]["name"] %></p>
+        <img class="img-responsive profilepic" src=<%=res.locals.favorites[i]["image"]%>>
+
+        <a class="btn btn-default" href="/favorites/<%=req.params.userid%>?details=<%=i%>">Show Details</a>
+
+        <form action="/unfavorite" method="post">
+          <input type="hidden" name="userid" value="<%=req.session.passport.user%>" />
+          <input type="hidden" name="petfinderid" value="<%=res.locals.favorites[i]["id"]%>" />
+          <button class="btn btn-danger">Unfavorite</button>
+        </form>
+    <% } %>
+
 </div>

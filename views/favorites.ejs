@@ -44,30 +44,31 @@
 
   <div class="allfavecats">
     <% for (var i = 0; i < res.locals.favorites.length; i++) { %>
+      <% if (res.locals.favorites[i] !== undefined) { %>
+        <% if (parseInt(res.locals.details) === i) { %>
+          <div class="card col-md-4 smallcard selectedcard">
+        <% } else { %>
+          <div class="card col-md-4 smallcard">
+        <% } %>
 
-      <% if (parseInt(res.locals.details) === i) { %>
-        <div class="card col-md-4 smallcard selectedcard">
-      <% } else { %>
-        <div class="card col-md-4 smallcard">
-      <% } %>
+          <img class="card-img-top" src=<%=res.locals.favorites[i]["image"]%> alt="cat picture">
+          <div class="card-block">
+            <h4 class="card-title"><%= res.locals.favorites[i]["name"] %></h4>
 
-        <img class="card-img-top" src=<%=res.locals.favorites[i]["image"]%> alt="cat picture">
-        <div class="card-block">
-          <h4 class="card-title"><%= res.locals.favorites[i]["name"] %></h4>
+            <form action="/unfavorite" method="post">
+              <input type="hidden" name="userid" value="<%=req.session.passport.user%>" />
+              <input type="hidden" name="petfinderid" value="<%=res.locals.favorites[i]["id"]%>" />
+              <button class="btn btn-danger btn-sm unfavorite">Unfavorite</button>
+            </form>
 
-          <form action="/unfavorite" method="post">
-            <input type="hidden" name="userid" value="<%=req.session.passport.user%>" />
-            <input type="hidden" name="petfinderid" value="<%=res.locals.favorites[i]["id"]%>" />
-            <button class="btn btn-danger btn-sm unfavorite">Unfavorite</button>
-          </form>
-
-          <% if (parseInt(res.locals.details) === i) { %>
-            <a class="btn btn-default" href="/favorites/<%=req.params.userid%>">Close Details</a>
-          <% } else { %>
-            <a class="btn btn-default" href="/favorites/<%=req.params.userid%>?details=<%=i%>">Show Details</a>
-          <% } %>
+            <% if (parseInt(res.locals.details) === i) { %>
+              <a class="btn btn-default" href="/favorites/<%=req.params.userid%>">Close Details</a>
+            <% } else { %>
+              <a class="btn btn-default" href="/favorites/<%=req.params.userid%>?details=<%=i%>">Show Details</a>
+            <% } %>
+          </div>
         </div>
-      </div>
+        <% } %>
     <% } %>
   </div>
 </div>

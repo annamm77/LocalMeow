@@ -72,36 +72,41 @@ module.exports = {
      json: true,
      transform2xxOnly: false,
      transform: function (response) {
-       var pet = {}
+       if (response.petfinder.header.status.code.$t === '100') {
+         var pet = {}
 
-       pet["id"] = response.petfinder.pet.id.$t
-       pet["name"] = response.petfinder.pet.name.$t
-       pet["age"] = response.petfinder.pet.age.$t
-       if (response.petfinder.pet.sex.$t === "F") {
-         pet["sex"] = "Female"
+         pet["id"] = response.petfinder.pet.id.$t
+         pet["name"] = response.petfinder.pet.name.$t
+         pet["age"] = response.petfinder.pet.age.$t
+         if (response.petfinder.pet.sex.$t === "F") {
+           pet["sex"] = "Female"
+         }
+         if (response.petfinder.pet.sex.$t === "M") {
+           pet["sex"] = "Male"
+         }
+         pet["breed"] = response.petfinder.pet.breeds.breed.$t
+         pet["shelterid"] = response.petfinder.pet.shelterId.$t
+         pet["description"] = response.petfinder.pet.description.$t
+
+         pet["image"] = response.petfinder.pet.media.photos.photo[2].$t
+
+         pet["address"] = response.petfinder.pet.contact.address1.$t
+         pet["city"] = response.petfinder.pet.contact.city.$t
+         pet["state"] = response.petfinder.pet.contact.state.$t
+         pet["zip"] = response.petfinder.pet.contact.zip.$t
+         pet["phone"] = response.petfinder.pet.contact.phone.$t
+         pet["email"] = response.petfinder.pet.contact.email.$t
+
+         pet["code"] = response.petfinder.header.status.code.$t
+         return pet
+       } else {
+         return undefined
        }
-       if (response.petfinder.pet.sex.$t === "M") {
-         pet["sex"] = "Male"
-       }
-       pet["breed"] = response.petfinder.pet.breeds.breed.$t
-       pet["shelterid"] = response.petfinder.pet.shelterId.$t
-       pet["description"] = response.petfinder.pet.description.$t
-
-       pet["image"] = response.petfinder.pet.media.photos.photo[2].$t
-
-       pet["address"] = response.petfinder.pet.contact.address1.$t
-       pet["city"] = response.petfinder.pet.contact.city.$t
-       pet["state"] = response.petfinder.pet.contact.state.$t
-       pet["zip"] = response.petfinder.pet.contact.zip.$t
-       pet["phone"] = response.petfinder.pet.contact.phone.$t
-       pet["email"] = response.petfinder.pet.contact.email.$t
-
-       pet["code"] = response.petfinder.header.status.code.$t
-       return pet
      }
     }
 
     return rp(options).promise()
+
   }
 
 }

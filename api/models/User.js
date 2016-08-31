@@ -19,10 +19,10 @@ module.exports = {
         toJSON: function() {
             var obj = this.toObject();
             delete obj.password;
-            // return obj;
             return res.redirect('/cats');
         }
     },
+    
     beforeCreate: function(user, cb) {
         bcrypt.genSalt(10, function(err, salt) {
             bcrypt.hash(user.password, salt, function(err, hash) {

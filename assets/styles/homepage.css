@@ -1,7 +1,6 @@
 .bottomdiv {
   background-color: rgba(255, 255, 255, 0.50);
   text-align: center;
-  height: 40%;
 }
 
 html {
@@ -14,14 +13,13 @@ html {
 
 h1 {
   font-family: 'Nixie One', cursive;
-  font-size: 9vw;
-  /*text-align: center;*/
+  font-size: 6rem;
 }
 
 .tagline {
   font-family: 'Nixie One', cursive;
   font-style: italic;
-  font-size: 2.5vw;
+  font-size: 2rem;
 }
 
 .welcomelink {
@@ -30,7 +28,7 @@ h1 {
   color: #096778;
   padding-right: 6vw;
   padding-left: 6vw;
-  font-size: 2vw;
+  font-size: 3rem;
 }
 
 .welcomelink:hover {

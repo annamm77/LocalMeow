@@ -3,14 +3,6 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
-html {
-  background: url("/images/onecat.jpeg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-size: 100% 100%;
-}
 
 /*html {
   background: url("/images/onecat.jpeg") no-repeat center center fixed;
@@ -21,7 +13,7 @@ html {
 }*/
 
 /*TRY THIS LAST THEN GIVE UP!*/
-/*html {
+body {
   background: url("/images/onecat.jpeg") no-repeat center center fixed;
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
@@ -31,7 +23,7 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}*/
+}
 
 h1 {
   font-family: 'Nixie One', cursive;

@@ -61,21 +61,51 @@
 
         <div class="details">
           <p>Name: <%= res.locals.searchresults.pets[res.locals.current_index]["name"] %></p>
-          <p>Sex: <%= res.locals.searchresults.pets[res.locals.current_index]["sex"] %></p>
-          <p>Age: <%= res.locals.searchresults.pets[res.locals.current_index]["age"] %></p>
-          <p>Breed: <%= res.locals.searchresults.pets[res.locals.current_index]["breed"] %></p>
+
+          <% if (res.locals.searchresults.pets[res.locals.current_index]["sex"]) { %>
+            <p>Sex: <%= res.locals.searchresults.pets[res.locals.current_index]["sex"] %></p>
+          <% } %>
+
+          <% if (res.locals.searchresults.pets[res.locals.current_index]["age"]) { %>
+            <p>Age: <%= res.locals.searchresults.pets[res.locals.current_index]["age"] %></p>
+          <% } %>
+
+          <% if (res.locals.searchresults.pets[res.locals.current_index]["breed"]) { %>
+            <p>Breed: <%= res.locals.searchresults.pets[res.locals.current_index]["breed"] %></p>
+          <% } %>
+
         </div>
       </div>
 
       <div class="descriptionandcontact">
-        <p><%= res.locals.searchresults.pets[res.locals.current_index]["description"] %></p>
+        <% if (res.locals.searchresults.pets[res.locals.current_index]["description"]) { %>
+          <p><%= res.locals.searchresults.pets[res.locals.current_index]["description"] %></p>
+        <% } %>
 
-        <p><%= res.locals.searchresults.pets[res.locals.current_index]["address"] %>,
-        <%= res.locals.searchresults.pets[res.locals.current_index]["city"] %>,
-        <%= res.locals.searchresults.pets[res.locals.current_index]["state"] %>
-        <%= res.locals.searchresults.pets[res.locals.current_index]["zip"] %></p>
-        <p><%= res.locals.searchresults.pets[res.locals.current_index]["phone"] %></p>
-        <p><%= res.locals.searchresults.pets[res.locals.current_index]["email"] %></p>
+        <% if (res.locals.searchresults.pets[res.locals.current_index]["address"]) { %>
+          <p><%= res.locals.searchresults.pets[res.locals.current_index]["address"] %>,
+        <% } %>
+
+        <% if (res.locals.searchresults.pets[res.locals.current_index]["city"]) { %>
+          <%= res.locals.searchresults.pets[res.locals.current_index]["city"] %>,
+          <% } %>
+
+        <% if (res.locals.searchresults.pets[res.locals.current_index]["state"]) { %>
+          <%= res.locals.searchresults.pets[res.locals.current_index]["state"] %>
+          <% } %>
+
+        <% if (res.locals.searchresults.pets[res.locals.current_index]["zip"]) { %>
+          <%= res.locals.searchresults.pets[res.locals.current_index]["zip"] %></p>
+          <% } %>
+
+        <% if (res.locals.searchresults.pets[res.locals.current_index]["phone"]) { %>
+          <p><%= res.locals.searchresults.pets[res.locals.current_index]["phone"] %></p>
+        <% } %>
+
+        <% if (res.locals.searchresults.pets[res.locals.current_index]["email"]) { %>
+          <p><%= res.locals.searchresults.pets[res.locals.current_index]["email"] %></p>
+        <% } %>
+
       </div>
     <% } %>
   </div>

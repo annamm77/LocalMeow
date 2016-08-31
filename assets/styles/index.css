@@ -9,11 +9,11 @@ body {
 }
 
 .catprofile .profilename {
-  font-size: 3vw;
+  font-size: 3rem;
 }
 
 .catprofile .profilepic {
-  height: 30vw;
+  height: 30rem;
   width: auto;
   margin: auto;
 }
@@ -34,7 +34,7 @@ body {
 }
 
 .catprofile .detailspic {
-  height: 15vw;
+  height: 15rem;
   width: auto;
 }
 
@@ -57,7 +57,7 @@ body {
 }
 
 .smallcard .card-img-top {
-  height: 10vw;
+  height: 10rem;
   width: auto;
 }
 
@@ -81,6 +81,6 @@ body {
 }
 
 .bigcard .card-img-top {
-  height: 30vw;
+  height: 20rem;
   width: auto;
 }

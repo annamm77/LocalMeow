@@ -32,7 +32,8 @@
     "sails": "~0.12.4",
     "sails-disk": "~0.10.9",
     "sails-mongo": "^0.12.1",
-    "sails-postgresql": "^0.11.4"
+    "sails-postgresql": "^0.11.4",
+    "sails-test-helper": "^0.5.0"
   },
   "scripts": {
     "debug": "node debug app.js",
@@ -44,5 +45,8 @@
     "url": "git://github.com/annamason/kittycats.git"
   },
   "author": "annamason",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "mocha": "^3.0.2"
+  }
 }

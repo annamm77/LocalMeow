@@ -5,13 +5,14 @@ body {
 
 html {
   background: url("/images/onecat.jpeg") no-repeat center center fixed;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
-  -o-background-size: contain;
-  background-size: contain;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-size: 100% 100%;
 }
 
-/*html,body {
+/*html {
   background: url("/images/onecat.jpeg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -19,6 +20,7 @@ html {
   background-size: cover;
 }*/
 
+/*TRY THIS LAST THEN GIVE UP!*/
 /*html {
   background: url("/images/onecat.jpeg") no-repeat center center fixed;
   -webkit-background-size: 100%;

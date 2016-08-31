@@ -10,7 +10,7 @@ module.exports = {
 
   getpets: function (zip, lastoffset) {
     var options = {
-      uri: 'https://api.petfinder.com/pet.find?key=' + process.env.API_KEY + '&animal=cat&location=' + zip + '&offset=' + lastoffset +'&format=json',
+      uri: 'https://api.petfinder.com/pet.find?key=' + process.env.API_KEY + '&animal=cat&location=' + zip + '&offset=' + lastoffset + '&count=100' +'&format=json',
       headers: {
             'User-Agent': 'Request-Promise'
         },

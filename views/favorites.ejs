@@ -8,26 +8,54 @@
 
       <img class="card-img-top" src=<%=res.locals.favorites[index]["image"]%> alt="cat picture">
       <div class="card-block">
-        <h4 class="card-title"><%= res.locals.favorites[index]["name"] %></h4>
+        <h3 class="card-title"><%= res.locals.favorites[index]["name"] %></h3>
       </div>
 
       <div class="card-block">
-        <p class="card-text">Sex: <%= res.locals.favorites[index]["sex"] %></p>
-        <p class="card-text">Age: <%= res.locals.favorites[index]["age"] %></p>
-        <p class="card-text">Breed: <%= res.locals.favorites[index]["breed"] %></p>
+        <% if (res.locals.favorites[index]["sex"]) { %>
+          <p class="card-text">Sex: <%= res.locals.favorites[index]["sex"] %></p>
+        <% } %>
+
+        <% if (res.locals.favorites[index]["age"]) { %>
+          <p class="card-text">Age: <%= res.locals.favorites[index]["age"] %></p>
+        <% } %>
+
+        <% if (res.locals.favorites[index]["breed"]) { %>
+          <p class="card-text">Breed: <%= res.locals.favorites[index]["breed"] %></p>
+        <% } %>
+
       </div>
 
       <div class="card-block">
-        <p class="card-text"><%= res.locals.favorites[index]["description"] %></p>
+        <% if (res.locals.favorites[index]["description"]) { %>
+          <p class="card-text"><%= res.locals.favorites[index]["description"] %></p>
+        <% } %>
       </div>
 
       <div class="card-block">
-        <p class="card-text"><%= res.locals.favorites[index]["address"] %>,
-        <%= res.locals.favorites[index]["city"] %>,
-        <%= res.locals.favorites[index]["state"] %>
-        <%= res.locals.favorites[index]["zip"] %></p>
-        <p class="card-text"><%= res.locals.favorites[index]["phone"] %></p>
-        <p class="card-text"><%= res.locals.favorites[index]["email"] %></p>
+        <% if (res.locals.favorites[index]["address"]) { %>
+          <p class="card-text"><%= res.locals.favorites[index]["address"] %>,
+        <% } %>
+
+        <% if (res.locals.favorites[index]["city"]) { %>
+          <%= res.locals.favorites[index]["city"] %>,
+        <% } %>
+
+        <% if (res.locals.favorites[index]["state"]) { %>
+          <%= res.locals.favorites[index]["state"] %>
+        <% } %>
+
+        <% if (res.locals.favorites[index]["zip"]) { %>
+          <%= res.locals.favorites[index]["zip"] %></p>
+        <% } %>
+
+        <% if (res.locals.favorites[index]["phone"]) { %>
+          <p class="card-text"><%= res.locals.favorites[index]["phone"] %></p>
+        <% } %>
+
+        <% if (res.locals.favorites[index]["email"]) { %>
+          <p class="card-text"><%= res.locals.favorites[index]["email"] %></p>
+        <% } %>
       </div>
 
       <form action="/unfavorite" method="post">

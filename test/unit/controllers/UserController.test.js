@@ -1,7 +1,7 @@
 require("sails-test-helper");
 
 describe(TEST_NAME, function() {
-  describe("CREATE method", function() {
+  describe("TEST method", function() {
     it("should be successful", function(done) {
       request.get("/")
         .expect(200)

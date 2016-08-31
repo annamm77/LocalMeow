@@ -11,7 +11,7 @@
   background-size: cover;
 }*/
 
-body {
+html {
   background-image: url("/images/onecat.jpeg");
   background-position: center center;
   background-repeat: no-repeat;

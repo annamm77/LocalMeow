@@ -13,3 +13,7 @@ Local Meow is a website that allows you to search for, view and favorite availab
 
 #### Technologies Used
 This application is built in Node.js using the Sails.js framework. Data is retrieved from [Petfinder API](https://www.petfinder.com/developers/api-docs). It utilizes a MongoDB database and is hosted on AWS Elastic Beanstalk.
+
+#### Other Project Resources
+* [Trello Board](https://trello.com/b/8vET1MdC/local-meow)
+* [Product Plan](https://gist.github.com/annamw77/3600a314da6399da5e285402b5cefdd8)
